@@ -4,12 +4,11 @@ import {
     forwardRef,
     Input,
     Output,
-    NgZone,
-    AfterContentInit, OnChanges
+    NgZone
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
-declare var tinymce;
 
+declare var window: any;
 @Component({
     selector: 'tinymce',
     providers: [
@@ -22,7 +21,7 @@ declare var tinymce;
     template: `<textarea id="{{elementId}}">{{initVal}}</textarea>`
 })
 export class TinymceComponent implements ControlValueAccessor {
-    elementId: String = 'host';
+    elementId: String = Math.random().toString(36).substring(2);
 
     @Output() change = new EventEmitter();
     @Output() ready = new EventEmitter();
@@ -35,18 +34,22 @@ export class TinymceComponent implements ControlValueAccessor {
     editor;
 
     ngAfterViewInit() {
-        tinymce.init({
+        console.log(window.tinymce);
+        window.tinymce.init({
             selector: '#' + this.elementId,
-            plugins: ['link', 'paste', 'table', 'autoresize'],
+            plugins: ['link', 'autoresize'],
+            menubar: false,
+            toolbar: 'bold',
             skin_url: 'assets/skins/lightgray',
             autoresize_overflow_padding: 0,
             setup: editor => {
+                console.log('?');
                 this.editor = editor;
                 editor.on('keyup', () => {
                     const content = editor.getContent();
                     this.updateValue(content);
                 });
-            },
+            }
         });
     }
 
@@ -54,9 +57,7 @@ export class TinymceComponent implements ControlValueAccessor {
     * Constructor
     */
     constructor(zone: NgZone) {
-        console.log(this.value)
         this.value = this.initVal;
-        console.log(this.value)
         this.zone = zone;
     }
 

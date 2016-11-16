@@ -1,0 +1,38 @@
+{
+  "name": "ng2-tinymce",
+  "version": "1.0.8",
+  "description": "An example repository for building your own Angular 2 library",
+  "main": "ng2-tinymce.js",
+  "scripts": {
+    "watch": "tsc -p src -w",
+    "build": "rm -rf lib && tsc -p src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luigiinred/ng2-tinymce.git"
+  },
+  "keywords": [
+    "Angular",
+    "2",
+    "TinyMCE"
+  ],
+  "author": "timmy.garrabrant@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luigiinred/ng2-tinymce/issues"
+  },
+  "devDependencies": {
+
+    "typescript": "^2.0.3"
+  },
+  "dependencies": {
+    "@angular/common": "^2.2.0",
+    "@angular/core": "^2.2.0",
+    "@angular/forms": "^2.2.0",
+    "es6-shim": "^0.35.1",
+    "reflect-metadata": "^0.1.2",
+    "rxjs": "^5.0.0-beta.12",
+    "tinymce": "^4.4.3",
+    "zone.js": "^0.6.26"
+  }
+}

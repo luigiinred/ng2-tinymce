@@ -9,6 +9,8 @@ import {
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 
 declare var window: any;
+declare let tinymce: any;
+
 @Component({
     selector: 'tinymce',
     providers: [

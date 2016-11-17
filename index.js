@@ -1,1 +1,0 @@
-exports.TinymceModule = require('./lib/TinymceModule').TinymceModule;

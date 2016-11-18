@@ -1,43 +1,44 @@
 {
   "name": "ng2-tinymce",
-  "version": "1.0.16",
-  "description": "Angular2 TinyMCE Component",
+  "version": "1.0.21",
+  "description": "Angular2 TinyMCE component",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "scripts": {
-    "watch": "ngc -p src -w",
-    "build": "rm -rf lib && ngc -p tsconfig.json"
+    "prepublish": "npm run build && npm run build:aot",
+    "build": "./node_modules/.bin/tsc",
+    "build:aot": "./node_modules/.bin/ngc -p tsconfig-aot.json"
   },
+  "keywords": [
+    "angular",
+    "angular2",
+    "component",
+    "tinymce",
+    "wysiwyg"
+  ],
+  "author": "Timmy Garrabrant",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/luigiinred/ng2-tinymce.git"
   },
-  "keywords": [
-    "Angular",
-    "2",
-    "TinyMCE"
-  ],
-  "author": "timmy.garrabrant@gmail.com",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/luigiinred/ng2-tinymce/issues"
   },
+  "homepage": "https://github.com/luigiinred/ng2-tinymce#readme",
   "devDependencies": {
-    "@angular/compiler": "^2.1.0",
-    "@angular/compiler-cli": "^2.1.0",
-    "@angular/platform-server": "^2.1.0",
+    "@angular/compiler": "^2.2.1",
+    "@angular/compiler-cli": "^2.2.1",
+    "@angular/platform-server": "^2.2.1",
     "@types/core-js": "^0.9.34",
-    "@types/node": "^6.0.45",
+    "@types/node": "^6.0.48",
     "typescript": "^2.0.3"
   },
   "dependencies": {
-    "@angular/common": "^2.2.0",
-    "@angular/core": "^2.2.0",
-    "@angular/forms": "^2.2.0",
-    "es6-shim": "^0.35.1",
-    "reflect-metadata": "^0.1.2",
-    "rxjs": "^5.0.0-beta.12",
-    "tinymce": "^4.4.3",
-    "zone.js": "^0.6.26"
+    "@angular/common": "^2.2.1",
+    "@angular/core": "^2.2.1",
+    "@angular/forms": "^2.2.1",
+    "rxjs": "^5.0.0-rc.3",
+    "zone.js": "^0.6.25"
   }
 }
